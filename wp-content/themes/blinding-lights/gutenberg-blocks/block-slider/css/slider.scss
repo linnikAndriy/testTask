@@ -1,0 +1,181 @@
+.slider {
+  background: $black url("../assets/images/buy.png") no-repeat;
+  background-position-y: 45%;
+  padding: 60px 0;
+  .title{
+    span{
+      color: #fff;
+    }
+    @media only screen and (max-width: $lgs) {
+      text-align: center;
+    }
+  }
+
+  > .container {
+    max-width: 960px;
+  }
+
+  &__subtitle {
+    color: $grey;
+    margin-bottom: 55px;
+    @media only screen and (max-width: $lgs) {
+      text-align: center;
+    }
+  }
+
+  &__item {
+    background: $dark;
+    padding: 70px 30px;
+    display: flex !important;
+    justify-content: space-between;
+    @media only screen and (max-width: $lgs) {
+      padding: 50px 20px;
+    }
+    @media only screen and (max-width: $md) {
+      flex-direction: column-reverse;
+      padding: 25px 20px;
+    }
+    @media only screen and (max-width: $sm) {
+      padding: 25px 10px;
+    }
+  }
+
+  .image {
+    width: 49%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    @media only screen and (max-width: $md) {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+    img {
+      max-height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    width: 51%;
+    color: $grey;
+
+    h4 {
+      color: $white;
+      font-size: 24px;
+      line-height: 1.55;
+      margin-bottom: 60px;
+    }
+
+    p {
+      margin: 0 0 27px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    @media only screen and (max-width: $md) {
+      width: 100%;
+      h4{
+        margin-bottom: 25px;
+      }
+      p{
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+
+    .dots {
+      ul {
+        margin: 0;
+        display: flex;
+
+        li {
+          margin-right: 12px;
+
+          &.slick-active{
+
+            button{
+              background: $blue;
+              border-color: $blue;
+            }
+          }
+          &:last-child{
+            margin-right: 0;
+          }
+          button {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0;
+            outline: none;
+            background: transparent;
+            border: 1px solid #FFFFFF;
+            transition: all 0.2s;
+            &:hover{
+              cursor: pointer;
+              background: $blue;
+              border-color: $blue;
+            }
+          }
+        }
+      }
+    }
+
+    .arrows {
+      display: flex;
+
+      .prev, .next {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: $transition;
+
+        .active {
+          opacity: 0;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          .active {
+            opacity: 1;
+          }
+
+          .static {
+            opacity: 0;
+          }
+        }
+
+      }
+
+      .prev {
+        margin-right: 45px;
+
+        .active {
+          transform: rotate(180deg);
+        }
+      }
+
+      .next {
+        .static {
+          transform: rotate(180deg);
+        }
+      }
+
+      .active {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

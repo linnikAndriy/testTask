@@ -1,0 +1,19 @@
+@import "~normalize.css";
+@import "~slick-carousel/slick/slick";
+@import "variables";
+@import "fonts";
+
+@import "layout";
+@import "typography";
+
+@import "header";
+@import "footer";
+@import "archive";
+@import "sidebar";
+
+
+@import "gutenberg-blocks/block-banner/css/block-banner";
+@import "gutenberg-blocks/block-news/css/hot-news";
+@import "gutenberg-blocks/block-about/css/about";
+@import "gutenberg-blocks/block-clients/css/clients";
+@import "gutenberg-blocks/block-slider/css/slider";

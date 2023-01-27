@@ -1,0 +1,103 @@
+.hot-news{
+  padding-top: 60px;
+  padding-bottom: 120px;
+  background: $dark;
+  @media only screen and (max-width: $lg) {
+    padding-bottom: 90px;
+  }
+  @media only screen and (max-width: $md) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .title{
+    @media only screen and (max-width: $lgs) {
+        text-align: center;
+    }
+  }
+  .subtitle{
+    color: $grey;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 75px;
+    @media only screen and (max-width: $lgs) {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
+  &__list{
+    display: flex;
+    margin: 0 -45px;
+    @media only screen and (max-width: $lg) {
+      margin: 0 -15px;
+    }
+    @media only screen and (max-width: $md) {
+      margin: 0;
+      flex-wrap: wrap;
+    }
+  }
+  &__item{
+    width: 33.3333%;
+    padding: 0 45px;
+    @media only screen and (max-width: $lg) {
+      padding: 0 15px;
+    }
+    @media only screen and (max-width: $md) {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+    .image{
+      margin-bottom: 30px;
+      position: relative;
+      &:hover{
+        opacity: 0.8;
+      }
+      a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    h3 > a{
+      position: relative;
+      color: #fff;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      transition: $transition;
+      display: block;
+      z-index: 2;
+      &:after{
+        position: absolute;
+        content: '';
+        width: calc(100% - 43px);
+        background: $blue;
+        height: 21px;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    img{
+      width: 100%;
+      object-fit: cover;
+      height: 300px;
+      border: 14px solid #353535 ;
+      @media only screen and (max-width: $lg) {
+        height: 225px;
+      }
+      @media only screen and (max-width: $md) {
+        height: 300px;
+      }
+    }
+    .excerpt{
+      color: $grey;
+    }
+  }
+}
