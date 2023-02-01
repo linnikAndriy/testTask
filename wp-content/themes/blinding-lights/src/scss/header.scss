@@ -11,57 +11,6 @@
     z-index: 99;
   }
 
-  .menu-header-menu-container {
-    @media only screen and (max-width: $lg) {
-      position: absolute;
-      left: -400px;
-      transition: $transition;
-      top: 0;
-      background: $dark;
-      &.show {
-        left: 0;
-      }
-      .header__menu {
-        flex-direction: column;
-        padding-top: 100px;
-        width: 250px;
-        height: 100vh;
-
-        > li {
-          text-align: center;
-          margin-bottom: 10px;
-
-          &:hover {
-            a {
-              color: $white;
-              border-color: $white;
-            }
-          }
-        }
-
-        .menu-item-has-children {
-          &:hover{
-            .sub-menu{
-              display: block;
-              position: relative;
-              transform: none;
-              li{
-                margin: 5px 0;
-              }
-              a{
-                padding: 16px;
-              }
-            }
-          }
-        }
-
-        a {
-          width: 100%;
-
-        }
-      }
-    }
-  }
 
   .wrap {
     display: flex;
@@ -93,6 +42,20 @@
         transform: translate(-100%, -50%);
         top: 50%;
         display: none;
+        outline: none;
+
+        &:focus, &:active {
+          outline: none;
+          border: 0;
+        }
+
+        &::placeholder {
+          opacity: 1;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 400;
+        }
+
         @media only screen and (max-width: $lg) {
           width: 200px;
           height: 40px;
@@ -131,6 +94,9 @@
   &__menu {
     display: flex;
     flex-wrap: wrap;
+    @media only screen and (max-width: $lg) {
+      flex-wrap: nowrap;
+    }
   }
 
   &__menu {
@@ -139,12 +105,22 @@
       position: relative;
 
       &.menu-item-has-children {
+        &:hover {
+          cursor: pointer;
+        }
+
         > a {
           position: relative;
+          padding: 16px 46px 16px 24px;
+          min-width: 144px;
+          @media only screen and (max-width: $lg) {
+            padding: 16px 46px;
+          }
 
           &:after {
             content: '▾';
             position: absolute;
+            font-size: 25px;
             right: 19px;
             top: 50%;
             transform: translateY(-50%);
@@ -191,10 +167,86 @@
       left: 0;
       transform: translateY(100%);
 
-      > li > a {
-        color: $white;
-        padding: 16px 16px 16px 46px;
-        display: inline-block;
+      > li {
+        margin: 0;
+        &:hover{
+          a{
+            color: $blue;
+          }
+        }
+        > a {
+          color: $white;
+          padding: 16px 16px 16px 24px;
+          display: inline-block;
+          font-weight: 400;
+
+        }
+      }
+    }
+  }
+
+  .menu-header-menu-container {
+    @media only screen and (max-width: $lg) {
+      position: absolute;
+      left: -400px;
+      transition: $transition;
+      top: 0;
+      background: $dark;
+      &.show {
+        left: 0;
+      }
+      .header__menu {
+        flex-direction: column;
+        padding-top: 85px;
+        padding-bottom: 30px;
+        width: 250px;
+        height: 100vh;
+        overflow: auto;
+
+
+        > li {
+          text-align: center;
+          margin-bottom: 10px;
+
+          &:hover {
+            a {
+              color: $white;
+              border-color: $white;
+            }
+          }
+        }
+
+        .menu-item-has-children {
+          &:hover {
+
+            .sub-menu {
+              display: block;
+              position: relative;
+              transform: none;
+
+              li {
+                margin: 5px 0;
+              }
+
+              a {
+                padding: 16px;
+              }
+            }
+          }
+          .sub-menu li{
+            &:hover{
+              a{
+                color: $blue;
+              }
+
+            }
+          }
+        }
+
+        a {
+          width: 100%;
+
+        }
       }
     }
   }

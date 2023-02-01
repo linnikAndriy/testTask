@@ -523,9 +523,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #1F1F1F;
   border-radius: 8px;
   font-size: 24px;
-  border: 5px solid transparent;
   transition: all 0.4s;
-  padding: 15px 10px;
+  padding: 20px 10px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -540,11 +539,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (max-width: 1024px) {
   .btn {
-    padding: 5px;
+    padding: 10px;
   }
 }
 .btn:hover {
-  border: 5px solid #EFEFEF;
+  box-shadow: 0 0 0 5px #EFEFEF;
 }
 .btn:focus {
   background: #F3F3F3;
@@ -611,46 +610,6 @@ p {
 .header .logo {
   z-index: 99;
 }
-@media only screen and (max-width: 1024px) {
-  .header .menu-header-menu-container {
-    position: absolute;
-    left: -400px;
-    transition: all 0.4s;
-    top: 0;
-    background: #1F1F1F;
-  }
-  .header .menu-header-menu-container.show {
-    left: 0;
-  }
-  .header .menu-header-menu-container .header__menu {
-    flex-direction: column;
-    padding-top: 100px;
-    width: 250px;
-    height: 100vh;
-  }
-  .header .menu-header-menu-container .header__menu > li {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .header .menu-header-menu-container .header__menu > li:hover a {
-    color: #fff;
-    border-color: #fff;
-  }
-  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu {
-    display: block;
-    position: relative;
-    transform: none;
-  }
-  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu li {
-    margin: 5px 0;
-  }
-  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu a {
-    padding: 16px;
-  }
-  .header .menu-header-menu-container .header__menu a {
-    width: 100%;
-  }
-}
 .header .wrap {
   display: flex;
   align-items: center;
@@ -682,6 +641,17 @@ p {
   transform: translate(-100%, -50%);
   top: 50%;
   display: none;
+  outline: none;
+}
+.header__search form input:focus, .header__search form input:active {
+  outline: none;
+  border: 0;
+}
+.header__search form input::placeholder {
+  opacity: 1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
 }
 @media only screen and (max-width: 1024px) {
   .header__search form input {
@@ -716,16 +686,32 @@ p {
   display: flex;
   flex-wrap: wrap;
 }
+@media only screen and (max-width: 1024px) {
+  .header__menu {
+    flex-wrap: nowrap;
+  }
+}
 .header__menu li {
   margin: 0 6px;
   position: relative;
 }
+.header__menu li.menu-item-has-children:hover {
+  cursor: pointer;
+}
 .header__menu li.menu-item-has-children > a {
   position: relative;
+  padding: 16px 46px 16px 24px;
+  min-width: 144px;
+}
+@media only screen and (max-width: 1024px) {
+  .header__menu li.menu-item-has-children > a {
+    padding: 16px 46px;
+  }
 }
 .header__menu li.menu-item-has-children > a:after {
   content: "▾";
   position: absolute;
+  font-size: 25px;
   right: 19px;
   top: 50%;
   transform: translateY(-50%);
@@ -760,10 +746,62 @@ p {
   left: 0;
   transform: translateY(100%);
 }
+.header__menu .sub-menu > li {
+  margin: 0;
+}
+.header__menu .sub-menu > li:hover a {
+  color: #0094FF;
+}
 .header__menu .sub-menu > li > a {
   color: #fff;
-  padding: 16px 16px 16px 46px;
+  padding: 16px 16px 16px 24px;
   display: inline-block;
+  font-weight: 400;
+}
+@media only screen and (max-width: 1024px) {
+  .header .menu-header-menu-container {
+    position: absolute;
+    left: -400px;
+    transition: all 0.4s;
+    top: 0;
+    background: #1F1F1F;
+  }
+  .header .menu-header-menu-container.show {
+    left: 0;
+  }
+  .header .menu-header-menu-container .header__menu {
+    flex-direction: column;
+    padding-top: 85px;
+    padding-bottom: 30px;
+    width: 250px;
+    height: 100vh;
+    overflow: auto;
+  }
+  .header .menu-header-menu-container .header__menu > li {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .header .menu-header-menu-container .header__menu > li:hover a {
+    color: #fff;
+    border-color: #fff;
+  }
+  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu {
+    display: block;
+    position: relative;
+    transform: none;
+  }
+  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu li {
+    margin: 5px 0;
+  }
+  .header .menu-header-menu-container .header__menu .menu-item-has-children:hover .sub-menu a {
+    padding: 16px;
+  }
+  .header .menu-header-menu-container .header__menu .menu-item-has-children .sub-menu li:hover a {
+    color: #0094FF;
+  }
+  .header .menu-header-menu-container .header__menu a {
+    width: 100%;
+  }
 }
 .header .hamburger-lines {
   height: 26px;
